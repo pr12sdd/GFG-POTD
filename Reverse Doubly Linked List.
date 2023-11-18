@@ -1,0 +1,17 @@
+Node* reverseDLL(Node * head)
+    {
+         Node *p=head->next;
+         Node *q=head;
+         Node *r=NULL;
+         while(p!=NULL){
+             q->next=r;
+             q->prev=p;
+             r=q;
+             q=p;
+             p=p->next;
+         }
+         q->next=r;
+         q->prev=p;
+         head=q;
+         return head;
+    }
