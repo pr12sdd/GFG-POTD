@@ -1,0 +1,34 @@
+void inorder(Node *r,vector<int> &ans){
+        if(r!=NULL)
+        {inorder(r->left,ans);
+        ans.push_back(r->data);
+        inorder(r->right,ans);}
+        else{
+        ans.push_back(10000000000);
+        }
+    }
+void preorder(Node *r,vector<int> &ans){
+        if(r!=NULL)
+        {ans.push_back(r->data);
+        preorder(r->left,ans);
+        preorder(r->right,ans);}
+        else{
+        ans.push_back(10000000000);
+        }
+    }
+    bool isIdentical(Node *r1, Node *r2)
+    {
+        vector<int> ans1;
+        vector<int> ans2;
+        vector<int> ans3;
+        vector<int> ans4;
+    
+        inorder(r1,ans1);
+        inorder(r2,ans2);
+        inorder(r1,ans3);
+        inorder(r2,ans4);
+        
+        if(ans1==ans2 && ans3==ans4){
+        return true;}
+        return false;
+    }
